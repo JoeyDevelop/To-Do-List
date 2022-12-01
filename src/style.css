@@ -75,8 +75,80 @@ h1{
 .add {
     font-size: 80px;
     margin: 0px 20px 15px 0px;
+    cursor: pointer;
 }
 
 .add:hover {
     transform: scale(1.3);
+}
+
+.taskAdd {
+    font-size: 40px;
+    cursor: pointer;
+    margin-right: 20px;
+    margin-bottom: 5px;
+}
+
+.taskAdd:hover {
+    transform: scale(1.3);
+}
+
+.body {
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: center;
+    gap: 20px;
+    margin-top: 20px;
+}
+
+.project {
+    display: flex;
+    flex-direction: column;
+    align-items: space-between;
+    justify-content: start;
+    width: 80vw;
+    height: auto;
+    background-color: #9b6f59;
+    border-radius: 20px;
+}
+
+.projectHeader {
+    margin-top: 0px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 80vw;
+    height: 8vh;
+    background-color: #9b6f59;
+    border-radius: 20px;
+}
+
+.projectTasks {
+    display: flex;
+    flex-direction: column;
+}
+
+hr {
+    width: 80%;
+    margin-top: 10px;
+    margin-bottom: 0px;
+}
+
+.projectTitle {
+    color: white;
+    margin: 0px 0px 0px 20px;
+    margin-top: 0px;
+    font-size: 30px;
+    text-decoration-skip-ink: none;
+}
+
+.taskTitle {
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    height: 4vh;
+    color: white;
+    margin-left: 20px;
+    font-size: 20px;
 }
