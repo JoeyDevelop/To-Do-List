@@ -1,5 +1,6 @@
-export default function addToDOM(project) {
+function addToDOM(project) {
     const container = document.querySelector('.body');
+
     const item = document.createElement('div');
     item.classList.add('project');
     container.appendChild(item);
@@ -13,7 +14,7 @@ export default function addToDOM(project) {
     title.classList.add('projectTitle');
     projectHeader.appendChild(title);
 
-    //need to add task to event listener
+    // Make add task button functional
     const add = document.createElement('h1');
     add.addEventListener('click', () => {
         addTaskToProject(event);
@@ -33,8 +34,7 @@ function addTaskToProject(event, task) {
     const testText = document.createElement('h3');
     testText.classList.add('taskTitle');
     testText.innerHTML = 'Test';
-    projectTasks.appendChild(testText)
-    console.log(project);
+    projectTasks.appendChild(testText);
 };
 
 export { addToDOM, addTaskToProject}
