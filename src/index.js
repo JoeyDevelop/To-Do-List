@@ -8,3 +8,5 @@ btn.addEventListener('click', () => {
     projectForm();
     }
 });
+
+// Note: Try using array.splice(array.indexOf('object'), 1) when implementing delete button
