@@ -2,8 +2,8 @@ The To-Do list project is being made as part of the The Odin Project curriculum.
 
 Current Features:
  - Add projects to page
-
-Features coming soon:
  - Delete projects from page
  - Check projects complete 
+
+Features coming soon:
  - Add custom tasks

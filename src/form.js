@@ -5,11 +5,12 @@ let projectArray = [];
 
 function projectForm() {
     
-    const body = document.body;
+    const headerRight = document.querySelector('.headerRight')
+    const addProjectBtn = document.querySelector('.add');
     
     const projectFormDiv = document.createElement('div');
     projectFormDiv.classList.add('projectFormContainer');
-    body.appendChild(projectFormDiv);
+    headerRight.insertBefore(projectFormDiv, addProjectBtn);
 
     const projectFormInput = document.createElement('input');
     projectFormInput.type = 'text';

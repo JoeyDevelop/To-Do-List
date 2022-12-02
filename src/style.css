@@ -85,8 +85,7 @@ h1{
 .taskAdd {
     font-size: 40px;
     cursor: pointer;
-    margin-right: 20px;
-    margin-bottom: 5px;
+    margin-bottom: 10px;
 }
 
 .taskAdd:hover {
@@ -144,6 +143,16 @@ hr {
     text-decoration-skip-ink: none;
 }
 
+.projectButtons{
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    width: 120px;
+    height: 40px;
+    margin-right: 20px;
+    position: relative;
+}
+
 .taskTitle {
     outline: none;
     display: flex;
@@ -158,14 +167,12 @@ hr {
 /* look into making position relative to another element */
 .projectFormContainer {
     display: flex;
-    z-index: 1;
+    align-self: center;
     justify-content: space-between;
     align-items: center;
-    position: absolute;
     width: 360px;
     height: 40px;
-    bottom: 636px;
-    left: 980px;
+    margin-right: 20px;
 }
 
 .projectFormInput {
@@ -177,4 +184,25 @@ hr {
 .projectFormInputBtn {
    width: 40px;
    height: 30px;
+}
+
+.checkbox {
+    width: 25px;
+    height: 25px;
+    margin-bottom: 7px;
+    margin-right: 10px;
+}
+
+.headerRight {
+    display: flex;
+}
+
+.changeColor {
+    filter: invert(100%) sepia(2%) saturate(300%) hue-rotate(303deg) brightness(119%) contrast(100%);
+    margin-bottom: 5px;
+    margin-right: 5px;
+}
+
+.changeColor:hover {
+    transform: scale(1.2);
 }
