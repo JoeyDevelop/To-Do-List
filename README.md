@@ -3,7 +3,9 @@ The To-Do list project is being made as part of the The Odin Project curriculum.
 Current Features:
  - Add projects to page
  - Delete projects from page
- - Check projects complete 
+ - Check projects complete
+ - Add tasks to projects
 
-Features coming soon:
- - Add custom tasks
+Left to do:
+ - Personally review code and clean up as best as possible
+ - Find a better programmer to review code and take design notes

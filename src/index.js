@@ -5,8 +5,6 @@ btn.addEventListener('click', () => {
     if (document.body.contains(document.querySelector('.projectFormContainer'))) {
         return;
     } else {
-    projectForm();
+    projectForm(event);
     }
 });
-
-// Note: Try using array.splice(array.indexOf('object'), 1) when implementing delete button

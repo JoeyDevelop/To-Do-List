@@ -1,3 +1,5 @@
+import { projectForm } from "./form";
+
 function addToDOM(project) {
     const container = document.querySelector('.body');
 
@@ -10,14 +12,55 @@ function addToDOM(project) {
     item.appendChild(projectHeader);
 
     const title = document.createElement('h3');
-    title.innerHTML = `<u>${project.title}<u>`;
+    title.innerHTML = `${project.title}`;
     title.classList.add('projectTitle');
     projectHeader.appendChild(title);
 
-    // Make add task button functional
     const buttons = document.createElement('div');
+    deleteAndCheckbox(projectHeader, buttons);
+
+    const add = document.createElement('h1');
+    add.addEventListener('click', () => {
+        // addTaskToProject(event);
+        if (document.body.contains(document.querySelector('.taskFormInput'))) {
+            return;
+        } else {
+            projectForm(event);
+        }
+    });
+    add.innerHTML = '+';
+    add.classList.add('taskAdd');
+    buttons.appendChild(add);
+};
+
+function addTaskToProject(event, title) {
+    const project = event.target.parentElement.parentElement.parentElement;
+
+    const projectTasks = document.createElement('div');
+    projectTasks.classList.add('projectTasks');
+    project.appendChild(projectTasks);
+
+    const taskItems = document.createElement('div');
+    taskItems.classList.add('taskItems');
+    projectTasks.appendChild(taskItems);
+
+    const taskTitle = document.createElement('h3');
+    taskTitle.classList.add('taskTitle');
+    taskTitle.innerHTML = title;
+    taskItems.appendChild(taskTitle);
+
+    const buttons = document.createElement('div');
+    deleteAndCheckbox(taskItems, buttons);
+};
+
+function deleteProject(event) {
+    let project = event.target.parentElement.parentElement.parentElement;
+    project.remove();
+}
+
+function deleteAndCheckbox(location, buttons) {
     buttons.classList.add('projectButtons');
-    projectHeader.appendChild(buttons);
+    location.appendChild(buttons);
 
     const deleteBtn = document.createElement('img');
     deleteBtn.src = '/src/png/icons8-trash-32.png'
@@ -31,32 +74,6 @@ function addToDOM(project) {
     checkbox.classList.add('checkbox')
     checkbox.type = 'checkbox';
     buttons.appendChild(checkbox);
-
-    const add = document.createElement('h1');
-    add.addEventListener('click', () => {
-        addTaskToProject(event);
-    });
-    add.innerHTML = '+';
-    add.classList.add('taskAdd');
-    buttons.appendChild(add);
-};
-
-function addTaskToProject(event, task) {
-    const project = event.target.parentElement.parentElement.parentElement;
-
-    const projectTasks = document.createElement('div');
-    projectTasks.classList.add('projectTasks');
-    project.appendChild(projectTasks);
-
-    const testText = document.createElement('h3');
-    testText.classList.add('taskTitle');
-    testText.innerHTML = 'Test';
-    projectTasks.appendChild(testText);
-};
-
-function deleteProject(event) {
-    let project = event.target.parentElement.parentElement.parentElement;
-    project.remove();
 }
 
 export { addToDOM, addTaskToProject}

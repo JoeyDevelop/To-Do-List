@@ -1,20 +1,24 @@
-import { addToDOM } from "./dom";
+import { addTaskToProject, addToDOM } from "./dom";
 import { createProject } from "./tasks";
 
 let projectArray = [];
 
-function projectForm() {
+function projectForm(event) {
     
-    const headerRight = document.querySelector('.headerRight')
-    const addProjectBtn = document.querySelector('.add');
+    const headerRight = event.target.parentElement;
+    const addProjectBtn = event.target;
     
     const projectFormDiv = document.createElement('div');
     projectFormDiv.classList.add('projectFormContainer');
     headerRight.insertBefore(projectFormDiv, addProjectBtn);
 
     const projectFormInput = document.createElement('input');
+    if (headerRight.classList.contains('headerRight')) {
+        projectFormInput.classList.add('projectFormInput');
+    } else {
+        projectFormInput .classList.add('taskFormInput');
+    }
     projectFormInput.type = 'text';
-    projectFormInput.classList.add('projectFormInput');
     projectFormDiv.appendChild(projectFormInput);
 
     const projectFormInputBtn = document.createElement('button');
@@ -26,17 +30,17 @@ function projectForm() {
         projectFormDiv.remove();
     });
     projectFormDiv.appendChild(projectFormInputBtn);
-};
 
-function submitProjectForm(title) {   
-    if (title === '') {
-        return;
-    } else {
-        let project = new createProject(title);
-    projectArray.push(new createProject(project));
-    addToDOM(project);
-    console.log(projectArray);
-    }
+    function submitProjectForm(title) {   
+        if (title === '') {
+            return;
+        } else if (headerRight.classList.contains('headerRight')) {
+            let project = new createProject(title);
+            addToDOM(project);
+        } else {
+            addTaskToProject(event, title);
+        }
+    };
 };
 
 export { projectForm }
