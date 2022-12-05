@@ -1,16 +1,16 @@
-function createProject(title) {
-    return {
-        title,
-    }
+function createProject (title) {
+  return {
+    title
+  }
 };
 
-function createTask(title, description, dueDate, priority) {
-    return{
-        title,
-        description,
-        dueDate,
-        priority,
-    }
+function createTask (title, description, dueDate, priority) {
+  return {
+    title,
+    description,
+    dueDate,
+    priority
+  }
 };
 
-export {createProject, createTask}
+export { createProject, createTask }

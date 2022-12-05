@@ -1,10 +1,10 @@
-import { projectForm } from "./form" ;
+import { projectForm } from './form'
 
-const btn = document.querySelector('.add');
+const btn = document.querySelector('.add')
 btn.addEventListener('click', () => {
-    if (document.body.contains(document.querySelector('.projectFormContainer'))) {
-        return;
-    } else {
-    projectForm(event);
-    }
-});
+  if (document.body.contains(document.querySelector('.projectFormContainer'))) {
+
+  } else {
+    projectForm(event)
+  }
+})
