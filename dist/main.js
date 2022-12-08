@@ -7,6 +7,7 @@
  * If you are looking for production-ready output files, see mode: "production" (https://webpack.js.org/configuration/mode/).
  */
 /******/ (() => { // webpackBootstrap
+/******/ 	"use strict";
 /******/ 	var __webpack_modules__ = ({
 
 /***/ "./src/dom.js":
@@ -15,8 +16,7 @@
   \********************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-"use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\nfunction dom() {\n    const tabArray = document.querySelectorAll('.tab');\n    // Add active class on click & remove active tab from other elements\n    tabArray.forEach(item => {\n        item.addEventListener('click', () => {\n            tabArray.forEach(item => {\n                item.classList.remove('active');\n            });\n            item.classList.add('active');\n            changeTab();\n        })\n    })\n\n    // Change tab indicator to show current tab correctly\n    function changeTab() {\n        const currentTab = document.querySelector('.currentTab');\n        currentTab.innerHTML = document.querySelector('.active').innerHTML;\n    }\n    \n}\n\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (dom);\n\n//# sourceURL=webpack://to-do-list/./src/dom.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"dom\": () => (/* binding */ dom)\n/* harmony export */ });\nfunction dom() {\n    const tabArray = document.querySelectorAll('.tab');\n    // Add active class on click & remove active tab from other elements\n    tabArray.forEach(item => {\n        item.addEventListener('click', () => {\n            tabArray.forEach(item => {\n                item.classList.remove('active');\n            });\n            removeAddBtn()\n            addBtn()\n            item.classList.add('active');\n            changeTab();\n        })\n    })\n\n    // Change tab indicator to show current tab correctly\n    function changeTab() {\n        const currentTab = document.querySelector('.currentTab');\n        currentTab.innerHTML = document.querySelector('.active').innerHTML;\n    }\n    \n}\n\nfunction addBtn() {\n    const content = document.querySelector('.content');\n\n    const  addDiv = document.createElement('div');\n    addDiv.classList.add('addDiv');\n    content.appendChild(addDiv);\n\n    const addText = document.createElement('h1');\n    addText.classList.add('addText');\n    addText.innerHTML = '+';\n    addDiv.appendChild(addText);\n    }\n\nfunction removeAddBtn() {\n    const addDiv = document.querySelector('.addDiv');\n    addDiv.remove();\n}\n\n\n\n//# sourceURL=webpack://to-do-list/./src/dom.js?");
 
 /***/ }),
 
@@ -24,9 +24,9 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
 /*!**********************!*\
   !*** ./src/index.js ***!
   \**********************/
-/***/ ((__unused_webpack_module, __unused_webpack_exports, __webpack_require__) => {
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-eval("const { default: dom } = __webpack_require__(/*! ./dom */ \"./src/dom.js\");\n\ndom()\n\n//# sourceURL=webpack://to-do-list/./src/index.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _dom__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./dom */ \"./src/dom.js\");\n\n\n(0,_dom__WEBPACK_IMPORTED_MODULE_0__.dom)()\n\n//# sourceURL=webpack://to-do-list/./src/index.js?");
 
 /***/ })
 

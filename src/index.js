@@ -1,3 +1,3 @@
-const { default: dom } = require("./dom");
+import { dom } from "./dom";
 
 dom()
