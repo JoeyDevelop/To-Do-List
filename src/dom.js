@@ -1,5 +1,9 @@
+import { addBtn, addBtnLoad, removeAddBtn, hideTabContent, showTabContent } from './tabs';
+import { appendForm } from './forms'
+
 function dom() {
     // Setup DOM
+    addBtnLoad();
     hideTabContent();
     showTabContent(document.querySelector('.currentTab').innerHTML)
 
@@ -18,48 +22,19 @@ function dom() {
     // Change tab indicator and display tab content
     function changeTab() {
         // Delete and create new add button for new event listeners !!LIKELY TO CHANGE
+        const currentTab = document.querySelector('.active').innerHTML;
+        const tabIndicator = document.querySelector('.currentTab');
+        tabIndicator.innerHTML = currentTab;
+
+        // Append correct content
         removeAddBtn()
-        addBtn()
-
-        const currentTab = document.querySelector('.currentTab');
-        currentTab.innerHTML = document.querySelector('.active').innerHTML;
-
+        addBtn();
         hideTabContent();
-        showTabContent(currentTab.innerHTML);
+        showTabContent(currentTab);
+
+        // Open correct form 
+        appendForm(currentTab, tabArray);
     };
-};
-
-// Create and delete add button functions
-function addBtn() {
-    const content = document.querySelector('.content');
-
-    const  addDiv = document.createElement('div');
-    addDiv.classList.add('addDiv');
-    content.appendChild(addDiv);
-
-    const addText = document.createElement('h1');
-    addText.classList.add('addText');
-    addText.innerHTML = '+';
-    addDiv.appendChild(addText);
-};
-
-function removeAddBtn() {
-    const addDiv = document.querySelector('.addDiv');
-    addDiv.remove();
-};
-
-// Show correct main content functions
-function hideTabContent() {
-    const tabContent = document.querySelectorAll('.container');
-        for (let i = 0; i < tabContent.length; i++) {
-            tabContent[i].style.display = 'none';
-        };
-};
-
-function showTabContent(currentTab) {
-    console.log(currentTab)
-    const currentTabContent = document.getElementById(currentTab);
-    currentTabContent.style.display = '';
 };
 
 export { dom }

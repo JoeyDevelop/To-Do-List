@@ -16,7 +16,7 @@
         </div>
         <div class="sidebar">
             <div class="inbox">
-                <h1 class="tab">Inbox</h1>
+                <h1 class="tab active">Inbox</h1>
             </div>
             <div class="daily">
                 <h1 class="tab">Daily</h1>
@@ -32,6 +32,34 @@
             </div>
         </div>
         <div class="content">
+            <div class="formHolder">
+                <form class="form" action="">
+                    <div class="taskName">
+                        <label for="TaskName">Task:</label>
+                        <input type="text" id="taskName">
+                    </div>
+                    <div class="taskDescription">
+                        <label for="taskDescription">Description:</label>
+                        <textarea name="taskDescription" id="taskDescription" cols="20" rows="5"></textarea>
+                    </div>
+                    <div class="dueDate">
+                        <label for="dueDate">Due date:</label>
+                        <input type="date" id="dueDate">
+                    </div>
+                    <div class="priority">
+                        <label for="priority">Priority</label>
+                        <select name="" id="">
+                            <option value="low">Low</option>
+                            <option value="medium">Medium</option>
+                            <option value="high">High</option>
+                        </select>
+                    </div>
+                    <div class="buttons">
+                        <button id="cancelBtn" type="button">Cancel</button>
+                        <button id="submitBtn" type="button">Submit</button>
+                    </div>
+                </form>
+            </div>
             <div class="container" id="Inbox">Inbox</div>
             <div class="container" id="Daily">Daily</div>
             <div class="container" id="Weekly">Weekly</div>
@@ -43,6 +71,6 @@
         </div>
         <!-- <a href="https://www.flaticon.com/free-icons/double-check" title="double check icons">Double check icons created by Royyan Wijaya - Flaticon</a> -->
     </div>
-<script src="main.js"></script>
+<script src="main.js" type="module"></script>
 </body>
 </html>
