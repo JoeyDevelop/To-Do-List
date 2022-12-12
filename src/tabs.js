@@ -1,4 +1,9 @@
-import { cancelButton } from './forms';
+import { cancelButton, submitButton } from './forms';
+
+const formHolder = document.querySelector('.formHolder');
+const tabArray = document.querySelectorAll('.tab');
+cancelButton(formHolder, tabArray);
+submitButton(formHolder, tabArray);
 
 function addBtn() {
     const content = document.querySelector('.content');
@@ -16,13 +21,14 @@ function addBtn() {
 function addBtnLoad() {
     const addButton = document.querySelector('.addText');
     addButton.addEventListener('click', (event) => {
-    const formHolder = document.querySelector('.formHolder');
-    formHolder.style.visibility = 'visible';
-    const tabArray = document.querySelectorAll('.tab');
-    tabArray.forEach(item => {
-        item.classList.add('pointerEventsNone');
-    });
-    cancelButton(formHolder, tabArray);
+        // const formHolder = document.querySelector('.formHolder');
+        formHolder.style.visibility = 'visible';
+        // const tabArray = document.querySelectorAll('.tab');
+        tabArray.forEach(item => {
+            item.classList.add('pointerEventsNone');
+        });
+        // cancelButton(formHolder, tabArray);
+        // submitButton(formHolder, tabArray);
     });
 };
 

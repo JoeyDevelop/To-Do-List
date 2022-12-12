@@ -207,10 +207,30 @@ h3 {
     border-radius: 20px;
 }
 
+.taskLeft {
+    display: flex;
+    justify-content: space-around;
+    min-width: 50%;
+}
+
+.taskRight {
+    display: flex;
+    justify-content: end;
+    column-gap: 50px;
+    align-items: center;
+    min-width: 30%;
+}
+
+.buttons {
+    display: flex;
+    justify-content: center;
+    min-width: 10%;
+}
+
 .taskTitle {
     display: flex;
     flex-direction: column;
-    margin-bottom: 25px;
+    margin-bottom: 10px;
 }
 
 .taskDueDate {
@@ -252,6 +272,19 @@ h3 {
     pointer-events: none;
 }
 
+.icon {
+    width: 32px;
+    height: 32px;
+    filter: invert(100%) sepia(2%) saturate(9%)
+    hue-rotate(4deg) brightness(104%) contrast(102%);
+}
+
+.checkbox {
+    width: 32px;
+    height: 32px;
+    /* margin: 0; */
+}
+
 textarea {
     vertical-align: top;
     resize: none;
@@ -278,10 +311,39 @@ label {
     align-items: center;
     height: 100%;
     width: 100%;
+    gap: 20px;
 }
 
 .greenText {
     color: #5F7161;
+}
+
+.selfCredit {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.otherCredit {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+a {
+    font-weight: bold;
+}
+
+.link {
+    display: flex;
+    column-gap: 10px;
+}
+
+.link > img {
+    width: 32px;
+    height: 32px;
 }
 
 /* Active element styling */

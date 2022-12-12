@@ -1,3 +1,6 @@
+import { createTask } from './create';
+const form = document.querySelector('.form');
+
 function appendForm(currentTab, tabArray) {
     const addButton = document.querySelector('.addText');
         if (currentTab === 'Inbox') {
@@ -21,7 +24,6 @@ function appendForm(currentTab, tabArray) {
 
 function cancelButton(formHolder, tabArray) {
     const cancelBtn = document.querySelector('#cancelBtn');
-    const form = document.querySelector('.form');
     // Reset form inputs, hide form, reEnable tabs
     form.reset();
     cancelBtn.addEventListener('click', () => {
@@ -32,4 +34,24 @@ function cancelButton(formHolder, tabArray) {
     });
 };
 
-export { appendForm, cancelButton }
+function submitButton(formHolder, tabArray) {
+    const submitBtn = document.querySelector('#submitBtn');
+    submitBtn.addEventListener('click', () => {
+        // Define form inputs
+        const taskTitle = document.querySelector('#taskName').value;
+        const taskDescription = document.querySelector('#taskDescription').value;
+        const taskDueDate = document.querySelector('#dueDate').value;
+        const taskPriority = document.querySelector('#taskPriority').value;
+        createTask(taskTitle, taskDescription, taskDueDate, taskPriority);
+
+        // Hide form
+        formHolder.style.visibility = 'hidden';
+        tabArray.forEach(item => {
+            item.classList.remove('pointerEventsNone');
+        });
+        form.reset();
+    });
+
+}
+
+export { appendForm, cancelButton, submitButton }

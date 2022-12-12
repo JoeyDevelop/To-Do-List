@@ -4,7 +4,13 @@ The To-Do list project is being made as part of the The Odin Project curriculum.
 
 Current features: 
  - Tabs open different body sections
+ - Add tasks to inbox using form submit
 
  Upcoming features: 
- - Add tasks and projects to page
+ - Delete tasks
+ - Add projects
+ - Update about page
  - Sort tasks by priority and date
+
+ Possible bugs:
+ - Tasks are occasionally appended more than once, haven't been able to replicate

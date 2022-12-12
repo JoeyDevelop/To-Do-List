@@ -36,7 +36,7 @@
                 <form class="form" action="">
                     <div class="taskName">
                         <label for="TaskName">Task:</label>
-                        <input type="text" id="taskName">
+                        <input type="text" id="taskName" maxlength="12">
                     </div>
                     <div class="taskDescription">
                         <label for="taskDescription">Description:</label>
@@ -48,7 +48,7 @@
                     </div>
                     <div class="priority">
                         <label for="priority">Priority</label>
-                        <select name="" id="">
+                        <select name="" id="taskPriority">
                             <option value="low">Low</option>
                             <option value="medium">Medium</option>
                             <option value="high">High</option>
@@ -60,37 +60,24 @@
                     </div>
                 </form>
             </div>
-            <div class="container" id="Inbox">
-                <div class="task">
-                    <div class="taskTitle">
-                        <h5>Title:</h5>
-                        <h3>Shopping</h3>
-                    </div>
-                    <div class="taskDescription">
-                        <h5>Description:</h5>
-                        <textarea name="Shopping" id="" cols="30" rows="3"></textarea>
-                    </div>
-                    <div class="taskDueDate">
-                        <label for="dueDate">DueDate:</label>
-                        <input type="date" name="dueDate" id="dueDate">
-                    </div>
-                    <div class="taskPriority">
-                        <label for="priority">Priority:</label>
-                        <select name="" id="">
-                            <option value="low">Low</option>
-                            <option value="medium">Medium</option>
-                            <option value="high">High</option>
-                        </select>
-                    </div>
-                </div>
-            </div>
+            <div class="container" id="Inbox"></div>
             <div class="container" id="Daily">Daily</div>
             <div class="container" id="Weekly">Weekly</div>
             <div class="container" id="Projects">Projects</div>
             <div class="container" id="About">
                 <div class="creditDiv">
-                    <h5 class="greenText">Made by:</h5>
-                    <h1 class="greenText">Joey Patterson</h1>
+                    <div class="selfCredit">
+                        <h5 class="greenText">Made by:</h5>
+                        <div class="link">
+                            <h1 class="greenText">Joey Patterson</h1>
+                            <img src="/src/png/github-mark.png" alt="">
+                        </div>
+                    </div>
+                    <div class="otherCredit">
+                        <h5 class="greenText">Icons:</h5>
+                        <a class="greenText" href="https://www.flaticon.com/free-icons/double-check" title="double check icons">Double check icons created by Royyan Wijaya - Flaticon</a>
+                        <a class="greenText" href="https://www.flaticon.com/free-icons/trash" title="trash icons">Trash icons created by Freepik - Flaticon</a>
+                    </div>
                 </div>
             </div>
             <div class="addDiv">
