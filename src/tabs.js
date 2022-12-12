@@ -42,6 +42,10 @@ function hideTabContent() {
 function showTabContent(currentTab) {
     const currentTabContent = document.getElementById(currentTab);
     currentTabContent.style.display = '';
+    if (currentTab === 'Daily' || currentTab === 'Weekly') {
+        const hideAddBtn = document.querySelector('.addDiv')
+        hideAddBtn.style.visibility = 'hidden';
+    }
 };
 
 export { addBtn, addBtnLoad, removeAddBtn, hideTabContent, showTabContent }
