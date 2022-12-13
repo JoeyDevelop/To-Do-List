@@ -1,4 +1,5 @@
-import { cancelButton, submitButton } from './forms';
+import { cancelButton, submitButton, taskArray } from './forms';
+import { createTask } from './create';
 
 const formHolder = document.querySelector('.formHolder');
 const tabArray = document.querySelectorAll('.tab');
@@ -21,14 +22,10 @@ function addBtn() {
 function addBtnLoad() {
     const addButton = document.querySelector('.addText');
     addButton.addEventListener('click', (event) => {
-        // const formHolder = document.querySelector('.formHolder');
         formHolder.style.visibility = 'visible';
-        // const tabArray = document.querySelectorAll('.tab');
         tabArray.forEach(item => {
             item.classList.add('pointerEventsNone');
         });
-        // cancelButton(formHolder, tabArray);
-        // submitButton(formHolder, tabArray);
     });
 };
 
@@ -46,12 +43,65 @@ function hideTabContent() {
 };
 
 function showTabContent(currentTab) {
+    // Define Dates
+    const today = new Date().toISOString().slice(0, 10);
+    const weekArray = [];
+    let day2 = new Date();
+    let day3 = new Date();
+    let day4 = new Date();
+    let day5 = new Date();
+    let day6 = new Date();
+    let day7 = new Date();
+
+    day2.setDate(day2.getDate() + 1);
+    day3.setDate(day3.getDate() + 2);
+    day4.setDate(day4.getDate() + 3);
+    day5.setDate(day5.getDate() + 4);
+    day6.setDate(day6.getDate() + 5);
+    day7.setDate(day7.getDate() + 6);
+
+    day2 = day2.toISOString().slice(0, 10);
+    day3 = day3.toISOString().slice(0, 10);
+    day4 = day4.toISOString().slice(0, 10);
+    day5 = day5.toISOString().slice(0, 10);
+    day6 = day6.toISOString().slice(0, 10);
+    day7 = day7.toISOString().slice(0, 10);
+    weekArray.push(today, day2, day3, day4, day5, day6, day7)
+    // console.log(day2, day3, day4, day5, day6, day7);
+
     const currentTabContent = document.getElementById(currentTab);
     currentTabContent.style.display = '';
     if (currentTab === 'Daily' || currentTab === 'Weekly') {
         const hideAddBtn = document.querySelector('.addDiv')
         hideAddBtn.style.visibility = 'hidden';
+    } if (currentTab === 'Daily') {
+        for (let i = 0; i < taskArray.length; i++) {
+            if (taskArray[i].dueDate === today && taskArray[i].dailyAppended === false) {
+                createTask(taskArray[i].title, taskArray[i].description, taskArray[i].dueDate, taskArray[i].priority)
+                taskArray[i].dailyAppended = true;
+            }
+        }
+    } else if (currentTab === 'Weekly') {
+        for (let i = 0; i < taskArray.length; i++) {
+            if ((taskArray[i].dueDate === today ||
+                taskArray[i].dueDate === day2 ||
+                taskArray[i].dueDate === day3 ||
+                taskArray[i].dueDate === day4 ||
+                taskArray[i].dueDate === day5 ||
+                taskArray[i].dueDate === day6 ||
+                taskArray[i].dueDate === day7) &&
+                taskArray[i].weeklyAppended === false) {
+                    createTask(taskArray[i].title, taskArray[i].description, taskArray[i].dueDate, taskArray[i].priority)
+                    taskArray[i].weeklyAppended = true;
+                }
+        }
     }
 };
 
-export { addBtn, addBtnLoad, removeAddBtn, hideTabContent, showTabContent }
+
+function deleteTask(event) {
+    const task = event.target.parentElement.parentElement;
+    task.remove();
+};
+
+export { addBtn, addBtnLoad, removeAddBtn, hideTabContent, showTabContent, deleteTask }

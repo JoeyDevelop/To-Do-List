@@ -1,7 +1,11 @@
+import { deleteTask } from './tabs';
+
 // Create tasks on form submit
 function createTask(taskTitle, taskDescription, taskDueDate, taskPriority) {
-    // WILL CHANGE
-    const content = document.querySelector('#Inbox')
+    const currentTab = document.querySelector('.currentTab').innerHTML;
+    const content = document.querySelector('#' + currentTab)
+
+
     const task = document.createElement('div');
     const taskLeft = document.createElement('div');
     const taskRight = document.createElement('div');
@@ -42,6 +46,7 @@ function createTask(taskTitle, taskDescription, taskDueDate, taskPriority) {
     descriptionValue.innerHTML = taskDescription;
     descriptionValue.rows = '3';
     descriptionValue.cols = '30';
+    descriptionValue.disabled = true;
 
     taskDescriptionDiv.classList.add('taskDescription');
 
@@ -57,6 +62,7 @@ function createTask(taskTitle, taskDescription, taskDueDate, taskPriority) {
     dueDate.innerHTML = 'Due date:';
     dueDateValue.type = 'date';
     dueDateValue.value = taskDueDate;
+    dueDateValue.disabled  = true;
 
     taskDueDateDiv.classList.add('taskDueDate');
 
@@ -93,12 +99,16 @@ function createTask(taskTitle, taskDescription, taskDueDate, taskPriority) {
     priorityValue.appendChild(option1);
     priorityValue.appendChild(option2);
     priorityValue.appendChild(option3);
+    priorityValue.disabled = true;
 
     // Create buttons
     const trashBtn = document.createElement('img');
     const checkbox = document.createElement('input');
 
     trashBtn.classList.add('icon');
+    trashBtn.addEventListener('click', () => {
+        deleteTask(event);
+    });
     checkbox.classList.add('checkbox')
     trashBtn.src = '/src/png/bin.png'
     checkbox.type = 'checkbox'

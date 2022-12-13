@@ -277,6 +277,7 @@ h3 {
     height: 32px;
     filter: invert(100%) sepia(2%) saturate(9%)
     hue-rotate(4deg) brightness(104%) contrast(102%);
+    cursor: pointer;
 }
 
 .checkbox {

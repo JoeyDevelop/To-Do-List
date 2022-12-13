@@ -1,4 +1,7 @@
 import { createTask } from './create';
+import { CreateTaskObject } from './factory';
+
+const taskArray = [];
 const form = document.querySelector('.form');
 
 function appendForm(currentTab, tabArray) {
@@ -42,7 +45,13 @@ function submitButton(formHolder, tabArray) {
         const taskDescription = document.querySelector('#taskDescription').value;
         const taskDueDate = document.querySelector('#dueDate').value;
         const taskPriority = document.querySelector('#taskPriority').value;
-        createTask(taskTitle, taskDescription, taskDueDate, taskPriority);
+
+        const today = new Date().toISOString().slice(0, 10)
+        // createTask(taskTitle, taskDescription, taskDueDate, taskPriority);
+        const task = new CreateTaskObject(taskTitle, taskDescription, taskDueDate, taskPriority)
+        createTask(task.title, task.description, task.dueDate, task.priority);
+        taskArray.push(task);
+        console.log(today, task, taskArray);
 
         // Hide form
         formHolder.style.visibility = 'hidden';
@@ -54,4 +63,4 @@ function submitButton(formHolder, tabArray) {
 
 }
 
-export { appendForm, cancelButton, submitButton }
+export { appendForm, cancelButton, submitButton, taskArray }
