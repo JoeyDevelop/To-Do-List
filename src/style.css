@@ -303,6 +303,11 @@ label {
     gap: 3rem;
 }
 
+.hidden {
+    visibility: hidden;
+    position: absolute;
+}
+
 /* About styling */
 
 .creditDiv {

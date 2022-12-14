@@ -46,12 +46,14 @@ function submitButton(formHolder, tabArray) {
         const taskDueDate = document.querySelector('#dueDate').value;
         const taskPriority = document.querySelector('#taskPriority').value;
 
-        const today = new Date().toISOString().slice(0, 10)
-        // createTask(taskTitle, taskDescription, taskDueDate, taskPriority);
         const task = new CreateTaskObject(taskTitle, taskDescription, taskDueDate, taskPriority)
-        createTask(task.title, task.description, task.dueDate, task.priority);
+
         taskArray.push(task);
-        console.log(today, task, taskArray);
+        for (let i = 0; i < taskArray.length; i++) {
+            taskArray[i].taskNum = [i];
+            console.log(taskArray[i].taskNum)
+        }
+        createTask(task.title, task.description, task.dueDate, task.priority);
 
         // Hide form
         formHolder.style.visibility = 'hidden';
@@ -60,7 +62,6 @@ function submitButton(formHolder, tabArray) {
         });
         form.reset();
     });
-
 }
 
 export { appendForm, cancelButton, submitButton, taskArray }

@@ -5,11 +5,10 @@ The To-Do list project is being made as part of the The Odin Project curriculum.
 Current features: 
  - Tabs open different body sections
  - Add tasks to inbox using form submit
- - Delete tasks
+ - Deleting tasks in one tab deletes them globally
  - Tasks automatically appear in daily and weekly tabs according to due date
 
  Upcoming features/Need to do: 
- - Deleting task in one tab deletes it across all tabs
  - Add projects
  - Update about page
  - Better organize code

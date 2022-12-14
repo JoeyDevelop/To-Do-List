@@ -40,6 +40,18 @@ function hideTabContent() {
         for (let i = 0; i < tabContent.length; i++) {
             tabContent[i].style.display = 'none';
         };
+        const inbox = document.querySelector('#Inbox');
+        const daily = document.querySelector('#Daily');
+        const weekly = document.querySelector('#Weekly');
+        removeAllChildNodes(inbox);
+        removeAllChildNodes(daily)
+        removeAllChildNodes(weekly)
+
+        function removeAllChildNodes(parent) {
+            while (parent.firstChild) {
+                parent.removeChild(parent.firstChild);
+            }
+        }
 };
 
 function showTabContent(currentTab) {
@@ -67,7 +79,6 @@ function showTabContent(currentTab) {
     day6 = day6.toISOString().slice(0, 10);
     day7 = day7.toISOString().slice(0, 10);
     weekArray.push(today, day2, day3, day4, day5, day6, day7)
-    // console.log(day2, day3, day4, day5, day6, day7);
 
     const currentTabContent = document.getElementById(currentTab);
     currentTabContent.style.display = '';
@@ -76,30 +87,50 @@ function showTabContent(currentTab) {
         hideAddBtn.style.visibility = 'hidden';
     } if (currentTab === 'Daily') {
         for (let i = 0; i < taskArray.length; i++) {
-            if (taskArray[i].dueDate === today && taskArray[i].dailyAppended === false) {
-                createTask(taskArray[i].title, taskArray[i].description, taskArray[i].dueDate, taskArray[i].priority)
-                taskArray[i].dailyAppended = true;
+            if (taskArray[i].dueDate === today) {
+                createTask(taskArray[i].title, taskArray[i].description, taskArray[i].dueDate, taskArray[i].priority, false)
+            } else if (taskArray[i].dueDate !== today) {
+                createTask(taskArray[i].title, taskArray[i].description, taskArray[i].dueDate, taskArray[i].priority, true)
             }
         }
     } else if (currentTab === 'Weekly') {
         for (let i = 0; i < taskArray.length; i++) {
-            if ((taskArray[i].dueDate === today ||
+            if (taskArray[i].dueDate === today ||
                 taskArray[i].dueDate === day2 ||
                 taskArray[i].dueDate === day3 ||
                 taskArray[i].dueDate === day4 ||
                 taskArray[i].dueDate === day5 ||
                 taskArray[i].dueDate === day6 ||
-                taskArray[i].dueDate === day7) &&
-                taskArray[i].weeklyAppended === false) {
-                    createTask(taskArray[i].title, taskArray[i].description, taskArray[i].dueDate, taskArray[i].priority)
-                    taskArray[i].weeklyAppended = true;
-                }
+                taskArray[i].dueDate === day7) {
+                    createTask(taskArray[i].title, taskArray[i].description, taskArray[i].dueDate, taskArray[i].priority, false)
+                } else if (taskArray[i].dueDate === today ||
+                    taskArray[i].dueDate !== day2 ||
+                    taskArray[i].dueDate !== day3 ||
+                    taskArray[i].dueDate !== day4 ||
+                    taskArray[i].dueDate !== day5 ||
+                    taskArray[i].dueDate !== day6 ||
+                    taskArray[i].dueDate !== day7) {
+                        createTask(taskArray[i].title, taskArray[i].description, taskArray[i].dueDate, taskArray[i].priority, true)
+                    }
+        }
+    } else if (currentTab === 'Inbox') {
+        for (let i = 0; i < taskArray.length; i++) {
+            createTask(taskArray[i].title, taskArray[i].description, taskArray[i].dueDate, taskArray[i].priority)
         }
     }
 };
 
-
 function deleteTask(event) {
+    const taskDOMArray = document.querySelectorAll('.task')
+    for (let i = 0; i < taskArray.length; i++) {
+        taskArray[i].taskNum = [i];
+        taskDOMArray[i].setAttribute('taskNum', [i])
+        console.log(taskArray[i].taskNum)
+    }
+
+    const taskNum = event.target.parentElement.parentElement.getAttribute('taskNum');
+    taskArray.splice(taskNum, 1)
+
     const task = event.target.parentElement.parentElement;
     task.remove();
 };

@@ -1,12 +1,18 @@
 import { deleteTask } from './tabs';
 
 // Create tasks on form submit
-function createTask(taskTitle, taskDescription, taskDueDate, taskPriority) {
+function createTask(taskTitle, taskDescription, taskDueDate, taskPriority, hidden) {
     const currentTab = document.querySelector('.currentTab').innerHTML;
-    const content = document.querySelector('#' + currentTab)
+    const content = document.querySelector('#' + currentTab);
+
 
 
     const task = document.createElement('div');
+    if (hidden === true) {
+        task.classList.add('hidden')
+    } else if (hidden === false) {
+        task.classList.remove('hidden')
+    }
     const taskLeft = document.createElement('div');
     const taskRight = document.createElement('div');
     const buttons = document.createElement('div');

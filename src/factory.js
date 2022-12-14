@@ -4,8 +4,7 @@ function CreateTaskObject(title, description, dueDate, priority) {
         description,
         dueDate,
         priority,
-        dailyAppended: false,
-        weeklyAppended: false,
+        taskNum: 0,
     }
 }
 
