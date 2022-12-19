@@ -1,10 +1,13 @@
-import { cancelButton, submitButton, taskArray } from './forms';
+import { cancelButton, submitButton, submitProjectButton, taskArray } from './forms';
 import { createTask } from './create';
 
 const formHolder = document.querySelector('.formHolder');
 const tabArray = document.querySelectorAll('.tab');
+const projectFormHolder = document.querySelector('.projectFormHolder');
 cancelButton(formHolder, tabArray);
 submitButton(formHolder, tabArray);
+submitProjectButton(projectFormHolder, tabArray)
+
 
 function addBtn() {
     const content = document.querySelector('.content');

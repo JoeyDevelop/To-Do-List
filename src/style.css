@@ -190,7 +190,8 @@ h3 {
     margin: 0;
 }
 
-.container > .task{
+.container > .task,
+.container > .project{
     margin-top: 20px;
 }
 
@@ -210,7 +211,13 @@ h3 {
 .taskLeft {
     display: flex;
     justify-content: space-around;
+    align-items: center;
     min-width: 50%;
+}
+
+.projectHead > .taskLeft,
+.subTask > .taskLeft {
+    min-width: 75%;
 }
 
 .taskRight {
@@ -224,6 +231,7 @@ h3 {
 .buttons {
     display: flex;
     justify-content: center;
+    align-items: center;
     min-width: 10%;
 }
 
@@ -257,7 +265,8 @@ h3 {
     gap: 40px;
 }
 
-.formHolder {
+.formHolder,
+.projectFormHolder {
     visibility: hidden;
     left: 45%;
     top: 20%;
@@ -266,6 +275,26 @@ h3 {
     width: 300px;
     height: 400px;
     background-color: #6D8B74;
+}
+
+.projectFormHolder {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 300px;
+    height: 200px;
+    top: 40%;
+}
+
+.projectFormHolder > .buttons {
+    margin-top: 20px;
+}
+
+.projectFormHolder > .largeText {
+    width: 100%;
+    display: flex;
+    justify-content: center;
 }
 
 .pointerEventsNone {
@@ -278,6 +307,11 @@ h3 {
     filter: invert(100%) sepia(2%) saturate(9%)
     hue-rotate(4deg) brightness(104%) contrast(102%);
     cursor: pointer;
+}
+
+.icon:hover,
+.largeText:hover{
+    transform: scale(1.1);
 }
 
 .checkbox {
@@ -308,6 +342,37 @@ label {
     position: absolute;
 }
 
+.project {
+    width: 70vw;
+    min-height: 10vh;
+    margin-left: 20px;
+    background-color: #5F7161;
+    border-radius: 20px;
+}
+
+.projectHead {
+    display: flex;
+    height: 10vh;
+    border-bottom: 10px solid black;
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+}
+
+.subTask {
+    display: flex;
+    height: 10vh;
+}
+
+.biggerText {
+    font-size: 50px;
+    margin-bottom: 20px;
+}
+
+.largeText {
+    font-size: 60px;
+    margin-bottom: 5px;
+    cursor: pointer;
+}
 /* About styling */
 
 .creditDiv {

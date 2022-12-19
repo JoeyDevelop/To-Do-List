@@ -123,4 +123,51 @@ function createTask(taskTitle, taskDescription, taskDueDate, taskPriority, hidde
     buttons.appendChild(checkbox);
 }
 
-export { createTask }
+function createObject(projectTitle) {
+    const currentTab = document.querySelector('.currentTab').innerHTML;
+    const content = document.querySelector('#' + currentTab);
+
+    const project = document.createElement('div');
+    project.classList.add('project');
+    content.appendChild(project);
+
+    const projectHead = document.createElement('div');
+    projectHead.classList.add('projectHead');
+    project.appendChild(projectHead);
+
+    const projectLeft = document.createElement('div');
+    const buttons = document.createElement('div');
+    projectLeft.classList.add('taskLeft');
+    buttons.classList.add('buttons');
+    projectHead.appendChild(projectLeft);
+    projectHead.appendChild(buttons)
+
+    const projectTitleElement = document.createElement('h1');
+    projectTitleElement.innerHTML = projectTitle;
+    projectLeft.appendChild(projectTitleElement);
+
+    // const add = document.createElement('h1');
+    const deleteIcon = document.createElement('img');
+    const checkbox = document.createElement('input');
+
+    // add.classList.add('largeText');
+    deleteIcon.classList.add('icon');
+    deleteIcon.addEventListener('click', (event) => {
+        const location = event.target.parentElement.parentElement.parentElement
+        location.remove();
+    })
+    checkbox.classList.add('checkbox');
+
+    // add.innerHTML = '+'
+    // add.addEventListener('click', () => {
+    //     appendSubTaskForm();
+    // })
+    deleteIcon.src = '/src/png/bin.png'
+    checkbox.type = 'checkbox';
+
+    // buttons.appendChild(add);
+    buttons.appendChild(deleteIcon);
+    buttons.appendChild(checkbox);
+}
+
+export { createTask, createObject }

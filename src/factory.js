@@ -8,4 +8,10 @@ function CreateTaskObject(title, description, dueDate, priority) {
     }
 }
 
-export { CreateTaskObject }
+function CreateProjectObject(title) {
+    return {
+        title,
+    }
+}
+
+export { CreateTaskObject, CreateProjectObject }
