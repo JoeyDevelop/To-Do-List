@@ -8,18 +8,92 @@
     <link rel="stylesheet" href="/src/style.css">
 </head>
 <body>
-    <div class="content">
-        <div class="credits">
-            <h6><a target="_blank" href="https://icons8.com/icon/14237/trash">Trash</a> icon by <a target="_blank" href="https://icons8.com">Icons8</a></h6>
-        </div>
+    <div class="webpage">
         <div class="header">
-            <h1>To-Do:</h1>
-            <div class="headerRight">
-                <h1 class="add">+</h1>
+            <img src="/src/png/read.png" alt="" srcset="" class="logo">
+            <h1 class="title">To-Do</h1>
+            <h5 class="currentTab">Inbox</h5>
+        </div>
+        <div class="sidebar">
+            <div class="inbox">
+                <h1 class="tab active">Inbox</h1>
+            </div>
+            <div class="daily">
+                <h1 class="tab">Daily</h1>
+            </div>
+            <div class="weekly">
+                <h1 class="tab">Weekly</h1>
+            </div>
+            <div class="projects">
+                <h1 class="tab">Projects</h1>
+            </div>
+            <div class="about">
+                <h5 class="tab">About</h5>
             </div>
         </div>
-        <div class="body"></div>
+        <div class="content">
+            <div class="formHolder">
+                <form class="form" action="">
+                    <div class="taskName">
+                        <label for="TaskName">Task:</label>
+                        <input type="text" id="taskName" maxlength="12">
+                    </div>
+                    <div class="taskDescription">
+                        <label for="taskDescription">Description:</label>
+                        <textarea name="taskDescription" id="taskDescription" cols="20" rows="5"></textarea>
+                    </div>
+                    <div class="dueDate">
+                        <label for="dueDate">Due date:</label>
+                        <input type="date" id="dueDate">
+                    </div>
+                    <div class="priority">
+                        <label for="priority">Priority</label>
+                        <select name="" id="taskPriority">
+                            <option value="low">Low</option>
+                            <option value="medium">Medium</option>
+                            <option value="high">High</option>
+                        </select>
+                    </div>
+                    <div class="buttons">
+                        <button id="cancelBtn" type="button">Cancel</button>
+                        <button id="submitBtn" type="button">Submit</button>
+                    </div>
+                </form>
+            </div>
+            <form class="projectFormHolder">
+                <label class="biggerText" for="projectTitle">Project Title:</label>
+                <input required type="text" name="projectTitle" id="projectTitle">
+                <div class="buttons">
+                    <button id="cancelProjectBtn" type="button">Cancel</button>
+                    <button id="submitProjectBtn" type="button">Submit</button>
+                </div>
+            </form>
+            <div class="container" id="Inbox"></div>
+            <div class="container" id="Daily"></div>
+            <div class="container" id="Weekly"></div>
+            <div class="container" id="Projects"></div>
+            <div class="container" id="About">
+                <div class="creditDiv">
+                    <div class="selfCredit">
+                        <h5 class="greenText">Made by:</h5>
+                        <div class="link">
+                            <h1 class="greenText">Joey Patterson</h1>
+                            <img src="/src/png/github-mark.png" alt="">
+                        </div>
+                    </div>
+                    <div class="otherCredit">
+                        <h5 class="greenText">Icons:</h5>
+                        <a class="greenText" href="https://www.flaticon.com/free-icons/double-check" title="double check icons">Double check icons created by Royyan Wijaya - Flaticon</a>
+                        <a class="greenText" href="https://www.flaticon.com/free-icons/trash" title="trash icons">Trash icons created by Freepik - Flaticon</a>
+                    </div>
+                </div>
+            </div>
+            <div class="addDiv">
+                <h1 class="addText">+</h1>
+            </div>
+        </div>
+        <!-- <a href="https://www.flaticon.com/free-icons/double-check" title="double check icons">Double check icons created by Royyan Wijaya - Flaticon</a> -->
     </div>
-<script src="main.js"></script>
+<script src="main.js" type="module"></script>
 </body>
 </html>
